@@ -2,9 +2,11 @@
 
 A family of compression algorithms optimized for different use cases. 
 
+# (WIP - ARTC-LITE 0.1.0 and General ARTC 0.1.0)
+
 ## Variants
 
-### ARTC:  General Adaptive Regression Tensor Compression
+### ARTC 1.0.0:  General Adaptive Regression Tensor Compression
 **For:** Any data, any use case
 
 ### ARTC-LITE:  Lightweight IoT Tensor Encoding
@@ -31,7 +33,17 @@ compressor.print_stats()
 ### ARTC - FLEX *(Coming Soon)*
 **For:** Formula-based Lightweight Efficient eXtended (memory) - ARTC for AI/MLs for GPUs.
 
-
+---
+VERSION PROGRESSION FOR ARTC:                             
+0.0.1  (Initial concept)
+0.0.2  (Proof of concept)
+0.0.3  (PIP Libary Alpha)
+0.0.4  (Beta)
+0.0.5  (Pre-release)
+0.0.6  (Release candidate)
+0.0.7  (Bug fixes)
+0.0.8  (Optimizations)
+0.0.9  (Documentation)
 ---
 
 ## Installation
