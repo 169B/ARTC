@@ -9,6 +9,13 @@ A family of compression algorithms optimized for different use cases.
 ### ARTC 1.0.0:  General Adaptive Regression Tensor Compression
 **For:** Any data, any use case
 
+### ARTC-PREDICT:  General Adaptive Regression Tensor Compression for Prediction
+**For:** Based on a EKF to predict future values, and then compresses the error between the prediction and the actual value.
+**Benefits:**
+- Very High compression on predictable data
+- Low RAM usage
+- Fast
+
 ### ARTC-LITE:  Lightweight IoT Tensor Encoding
 **For:** IoT sensors, embedded devices, battery-powered systems
 
@@ -75,7 +82,55 @@ Formula: y = 0.5x + 20.0
 Stored:   m=0.5, b=20.0  (8 bytes)
 Result:  4× smaller
 ```
+COMPRESSION PIPELINE:
+────────────────────────────────────────────────────────────────
 
+1. MEMORY FETCH (GPU → CPU or within GPU)
+   ├── Read block of data from memory
+   ├── Cost: Memory bandwidth limited
+   └── Time: ~0.1ms per block
+
+2. COMPUTE REGRESSION 
+   ├── Calculate:  Σ(xy), Σ(x²), means, etc.
+   ├── Cost: Floating point operations
+   └── Time: ~0.01ms per block
+
+3. ERROR CHECKING
+   ├── Predict all points:  y = mx + b
+   ├── Calculate:  |actual - predicted|
+   ├── Find max error
+   └── Time: ~0.01ms per block
+
+4. DECISION & ENCODE
+   ├── If error < tolerance: store (m,b)
+   ├── Else: store raw data
+   └── Time: ~0.001ms
+
+5. MEMORY WRITE (back to storage)
+   ├── Write compressed data
+   └── Time: ~0.05ms
+
+TOTAL PER BLOCK: ~0.17ms
+
+
+DECOMPRESSION PIPELINE:
+────────────────────────────────────────────────────────
+
+1. MEMORY FETCH
+   ├── Read compressed data (m, b) or raw
+   └── Time: ~0.05ms
+
+2. DECODE
+   ├── Check type:  formula or raw? 
+   ├── If formula: compute y = m*x + b for all points
+   ├── If raw: copy directly
+   └── Time: ~0.02ms
+
+3. MEMORY WRITE
+   ├── Write decompressed data
+   └── Time: ~0.1ms
+
+TOTAL PER BLOCK: ~0.17ms
 ## Comparison
 
 | Method | Sensor Data | Random Data | Speed | RAM |
