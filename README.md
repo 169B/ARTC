@@ -35,15 +35,19 @@ compressor.print_stats()
 
 ---
 VERSION PROGRESSION FOR ARTC:                             
-0.0.1  (Initial concept)
-0.0.2  (Proof of concept)
-0.0.3  (PIP Libary Alpha)
-0.0.4  (Beta)
-0.0.5  (Pre-release)
-0.0.6  (Release candidate)
-0.0.7  (Bug fixes)
-0.0.8  (Optimizations)
-0.0.9  (Documentation)
+- 0.0.1  (Initial concept)
+- 0.0.2  (Proof of concept)
+- 0.0.3  (PIP Deployment Alpha)
+- 0.0.4  (Beta)
+- 0.0.5  (Pre-release)
+- 0.0.6  (Release candidate)
+- 0.0.7  (Bug fixes)
+- 0.0.8  (Optimizations)
+- 0.0.9  (Documentation)
+- 0.1.0  (ARTC-LITE and General ARTC)
+- 1.0.0  (General Adaptive Regression Tensor Compression)
+====== 
+- 1.1.0  (ARTC Stable Deployment)
 ---
 
 ## Installation
