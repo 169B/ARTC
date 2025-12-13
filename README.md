@@ -4,6 +4,9 @@ A family of compression algorithms optimized for different use cases.
 
 ## Variants
 
+### ARTC:  General Adaptive Regression Tensor Compression
+**For:** Any data, any use case
+
 ### ARTC-LITE:  Lightweight IoT Tensor Encoding
 **For:** IoT sensors, embedded devices, battery-powered systems
 
@@ -25,8 +28,9 @@ compressor.print_stats()
 ### ARTC-VRAM *(Coming Soon)*
 **For:** GPU memory compression, fitting bigger AI models
 
-### ARTC-IO *(Coming Soon)*
-**For:** Network transfers, disk storage
+### ARTC - FLEX *(Coming Soon)*
+**For:** Formula-based Lightweight Efficient eXtended (memory) - ARTC for AI/MLs for GPUs.
+
 
 ---
 
