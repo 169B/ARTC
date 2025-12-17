@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "artc"
-version = "0.1.0"
+version = "0.0.1"
 description = "ARTC-LITE: Lightweight IoT Tensor Encoding for sensor data compression"
 readme = "README.md"
 requires-python = ">=3.7"
