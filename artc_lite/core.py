@@ -17,6 +17,9 @@ Design principles:
 import numpy as np
 from typing import List, Dict, Union
 
+# Numerical tolerance for zero-denominator checks
+EPSILON = 1e-10
+
 
 class ARTCLITE:
     """
@@ -167,7 +170,7 @@ class ARTCLITE:
         numerator = np.sum((x - x_mean) * (block - y_mean))
         denominator = np.sum((x - x_mean) ** 2)
         
-        if denominator < 1e-10:
+        if denominator < EPSILON:
             # All x values same (shouldn't happen) - treat as constant
             m = 0.0
             b = y_mean
