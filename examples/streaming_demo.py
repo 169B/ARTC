@@ -1,9 +1,9 @@
 """
-ARTC-LITE IoT Demo:  Streaming Mode
+ARTC-LITE IoT Demo: Streaming Mode
 Shows how to use ARTC-LITE with real-time sensor data
 """
 
-from artc import ARTCLITE
+from artc_lite import ARTCLITE
 import numpy as np
 import time
 

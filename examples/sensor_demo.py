@@ -1,9 +1,9 @@
 """
-ARTC-LITE Example:  Temperature Sensor
+ARTC-LITE Example: Temperature Sensor
 Simulates 24 hours of temperature readings from an IoT sensor
 """
 
-from artc import ARTCLITE
+from artc_lite import ARTCLITE
 import numpy as np
 
 
