@@ -51,7 +51,7 @@ def main():
     temperature = 20 + 5 * np.sin(2 * np.pi * t / 24) + np.random.normal(0, 0.05, n)
 
     # 4. Step function - poor compression (discontinuities)
-    step = np.repeat([10, 20, 15, 25, 18], n // 5)[:n].astype(float)
+    step = np.repeat([10.0, 20.0, 15.0, 25.0, 18.0], (n + 4) // 5)[:n]
     step = step + np.random.normal(0, 0.1, n)
 
     # 5. Random - no compression
